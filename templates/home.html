@@ -1,0 +1,24 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Welcome to KeyMaster</title>
+        <meta name="description" content="KeyMaster">
+        <meta name="author" content="Javier Orman">
+        <link rel="stylesheet" href="../static/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <form action="/authorization" method="POST">
+                <div class="form-group">
+                    <h1>KeyMaster</h1>
+                    <h4>KeyMaster takes a Spotify playlist and splits it into new, smaller playlists organized by song key and mode (C Minor, G Major, etc.).</h4>
+                    <input type="text" name="playlist_uri" placeholder="Please enter Spotify Playlist URI" size="50"/>
+                </div>
+                <input type="submit" value="Submit" class="btn"/>
+            </form>
+            <!-- <h3>To obtain playlist URI:</h3> -->
+            <img src="../static/uri_screenshot.png" width=760 height=480>
+        </div>
+    </body>
+</html>

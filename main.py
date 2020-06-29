@@ -8,11 +8,9 @@ from db_client import DBClient
 client_id = os.getenv('spotify_client_id')
 client_secret = os.getenv('spotify_client_secret')
 DATABASE_URL = os.getenv('DATABASE_URL')
-access_token = sys.argv[2]
-playlist_uri = sys.argv[3]
 
-print(access_token)
-print(playlist_uri)
+playlist_uri = sys.argv[1]
+access_token = sys.argv[2]
 
 api_client = SpotifyClientAPI(
     client_id=client_id, client_secret=client_secret, access_token=access_token)

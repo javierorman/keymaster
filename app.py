@@ -39,10 +39,9 @@ def authorization():
 def process():
     code = request.args['code']
     access_token = request_tokens(code=code, redirect_uri=REDIRECT_URI, client_id=client_id, client_secret=client_secret)
-    
-    main = subprocess.Popen(['python3', 'main.py', authorization.playlist_uri, access_token], shell=True)
-    completed = main.wait()
-    if completed != 0:
+
+    main_completed = subprocess.run(['python', 'main.py', authorization.playlist_uri, access_token])
+    if main_completed.returncode != 0:
         return redirect('/failure')
     else:
         return redirect('/success')

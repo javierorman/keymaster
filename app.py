@@ -2,7 +2,8 @@ import os
 from flask import Flask, request, render_template, redirect
 from itertools import product
 from spotify_auth import request_tokens, auth_request
-from api_client import SpotifyClientAPI
+from spotify_api_client import SpotifyClientAPI
+import spotify_api_processor
 from db_client import DBClient
 
 client_id = os.getenv('spotify_client_id')
@@ -46,7 +47,7 @@ def process():
     api_client = SpotifyClientAPI(client_id=client_id, client_secret=client_secret, access_token=access_token)
     db_client = DBClient(DATABASE_URL=DATABASE_URL)
 
-    playlist_id = api_client.get_playlist_id(playlist_uri=authorization.playlist_uri)
+    playlist_id = spotify_api_processor.get_playlist_id(playlist_uri=authorization.playlist_uri)
     playlist_name = api_client.get_playlist_info(playlist_id=playlist_id, fields='name')['name']
     playlist_tracks = api_client.get_playlist_tracks(playlist_id=playlist_id)
     
@@ -64,7 +65,7 @@ def process():
     for key, mode in list(product(list_keys, list_modes)):
         track_uris = db_client.list_track_uris_by_key_and_mode(key=key, mode=mode)
         new_playlist_id = api_client.create_playlist(
-            pl_name=f"{playlist_name}: {api_client.real_key_and_mode(key=key, mode=mode)}")
+            playlist_name=f"{playlist_name}: {spotify_api_processor.real_key_and_mode(key=key, mode=mode)}")
         api_client.add_songs_to_playlist(new_playlist_id, track_uris)
 
     db_client.close_conn()

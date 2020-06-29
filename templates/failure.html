@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../static/style.css">
+    <title>Success</title>
+</head>
+<body>
+    <div class="container">
+        <form action="/authorization" method="POST">
+            <div class="form-group">
+                <h2>Failure :(</h2>
+                <h4>Try again:</h4>
+                <input type="text" name="playlist_uri" placeholder="Please enter Spotify Playlist URI" size="50" />
+            </div>
+            <input type="submit" value="Submit" class="btn" />
+        </form>
+    </div>
+    <!--{% if message %}
+    <p class="message">{{ message | safe}}</p>
+    {% endif %}-->
+</body>
+</html>

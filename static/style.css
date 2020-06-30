@@ -1,7 +1,7 @@
 html {
   position: relative;
   min-height: 100%;
-  background-image: url("spotify_background_opaque.jpg");
+  background-image: url("images/spotify_background_opaque.jpg");
   background-repeat: no-repeat;
   background-size: cover;
 }

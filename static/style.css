@@ -45,6 +45,14 @@ h4 {
     font-weight: 100;
 }
 
+a:link {
+    color: green;
+}
+
+a:visited {
+    color: darkgreen;
+}
+
 .container {
     padding: 0px;
     text-align: center;

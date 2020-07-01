@@ -30,6 +30,8 @@ for item in playlist_tracks['items']:
     track_uri = item['track']['uri']
     track_features = api_client.get_track_features(
         track_id=track_id, track_uri=track_uri)
+    if track_features == {}:
+        continue
     db_client.insert_track_features(track_features=track_features)
 
 list_keys = list(range(12))

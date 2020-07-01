@@ -51,6 +51,9 @@ def process():
 def success():
     return render_template('success.html')
 
+@app.route('/failure')
+def failure():
+    return render_template('failure.html')
 
 if __name__ == '__main__':
     app.run(debug=True)

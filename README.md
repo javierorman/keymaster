@@ -1,6 +1,8 @@
 # Organize playlists by key on Spotify
 **KeyMaster** takes any Spotify playlist and creates new playlists, grouped by key and mode (e.g. B Minor, A Major, etc.). 
 
+Try it [HERE](https://keymaster.herokuapp.com/)!
+
 1. The user is asked to enter a playlist's URI. For example, the URI for the Spotify-curated playlist **"Rock en Español"** is **spotify:playlist:37i9dQZF1DWYN0zdqzbEwl**.
 
 ![Playlist URI](static/images/uri_screenshot.png)
